@@ -1,0 +1,127 @@
+public class Main {
+    public static void main(String[] args) {
+        Main Obj = new Main();
+
+        Obj.insertBegin(11);
+        Obj.insertBegin(22);
+        System.out.println("Insertion at Beginning : ");
+        Obj.print();
+
+        Obj.insertEnd(33);
+        Obj.insertEnd(44);
+        System.out.println("Insertion at End :" );
+        Obj.print();
+
+        Obj.insertAfterPosition(2,77);
+        System.out.println("Insertion after 2nd position");
+        Obj.print();
+    }
+    public class Node{
+        int element;
+        Node next;
+        Node prev;
+        public Node(int element) {
+            this.element = element;
+        }
+    }
+
+    public Node head = null;
+    public Node tail = null;
+    int size=0;
+
+    public void insertBegin(int element){
+        Node newEle = new Node(element);
+        if(head == null) {
+            head = newEle;
+            tail = newEle;
+            newEle.next = head;
+            newEle.prev=head;
+        }
+        else {
+            head.prev = newEle;
+            newEle.prev=tail;
+            newEle.next = head;
+            tail.next = newEle;
+            head=newEle;
+        }
+        size++;
+    }
+
+    public void insertEnd(int element){
+        Node newEle=new Node(element);
+        if(head == null) {
+            head = newEle;
+            tail = newEle;
+            newEle.next = head;
+            newEle.prev=head;
+        }
+        else{
+            tail.next=newEle;
+            newEle.next=head;
+            newEle.prev=tail;
+            head.prev=newEle;
+            tail=newEle;
+        }
+    }
+
+    public void insertAfterPosition(int n, int data) {
+        int len = getLength();
+
+        // if insertion position is 0 means entering at start
+        if (n == 0) {
+            insertBegin(data);
+            return;
+        }
+        // means inserting after last item
+        if (n == len) {
+            insertEnd(data);
+            return;
+        }
+
+        // else insertion will happen somewhere in the middle
+
+
+        if (n < 1 || len < n) System.out.println("Invalid position"); else { Node freshNode = new Node(data); // can remove null assignments also (constructor takes care of these) // added just for explanation purpose freshNode.next = null; freshNode.prev = null; // nthNode used to traverse the Linked List Node nthNode = head; // traverse till the nth node while (--n > 0) {
+            nthNode = nthNode.next;
+        }
+
+        Node nextNode = nthNode.next; // (n+1)th node
+
+        // assigning (n+1)th node's previous to this new node
+        nextNode.prev = freshNode;
+
+        // new_node's next assigned to (n+1)th node
+        freshNode.next = nextNode;
+        // new_node's previous assigned to nth node
+        freshNode.prev = nthNode;
+
+        // assign nth node's next to new_node
+        nthNode.next = freshNode;
+    }
+}
+
+    public int getLength() {
+        int size = 0;
+        Node temp=head;
+        // traverse to the last node each time incrementing the size
+        while (temp != tail) {
+            temp = temp.next;
+            size++;
+        }
+        return size;
+    }
+
+    public void print() {  //print function
+        Node current = head;
+        if(head == null) {
+            System.out.println("List is empty");
+        }
+        else {
+            do{
+                System.out.print(" "+ current.element);
+                current = current.next;
+            }while(current != head);
+            System.out.println();
+        }
+    }
+}
