@@ -1,0 +1,35 @@
+
+class GFG {
+	// method to convert binary to decimal
+	int binaryToDecimal(long binary)
+	{
+		// variable to store the decimal number
+		int decimalNumber = 0, i = 0;
+
+		while (binary > 0) {
+			decimalNumber
+				+= Math.pow(2, i++) * (binary % 10);
+			binary /= 10;
+		}
+
+		// returning the converted decimal number
+		return decimalNumber;
+	}
+
+	// function to convert decimal to octal
+	int decimalToOctal(long binary)
+	{
+		int decimalNumber = binaryToDecimal(binary);
+  	String octalString
+			= Integer.toOctalString(decimalNumber);
+		int octalNumber = Integer.parseInt(octalString);
+		return octalNumber;
+	}
+
+	public static void main(String[] args)
+	{
+		GFG ob = new GFG();
+		System.out.println("octal number:"
+						+ ob.decimalToOctal(100100));
+	}
+}
