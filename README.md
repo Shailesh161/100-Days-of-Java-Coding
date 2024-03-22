@@ -6,7 +6,5 @@ In this repository I will add one or more Java code daily for 100 days for my ow
 
 <p align="left"> <a href="https://github.com/ryo-ma/github-profile-trophy"><img src="https://github-profile-trophy.vercel.app/?username=shailesh161" alt="shailesh161" /></a> </p>
 
-- 📫 How to reach me **shaileshgatkul2003@gmail.com**
-
 
 <p><img align="center" src="https://github-readme-streak-stats.herokuapp.com/?user=shailesh161&" alt="shailesh161" /></p>
