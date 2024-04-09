@@ -1,0 +1,84 @@
+import java.util.*;
+
+public class SubarraySum
+{
+    public static void printSubarraySum(int arr[])
+    {
+        int currSum=0;
+        int maxSum=Integer.MIN_VALUE;
+
+        for(int i=0;i<arr.length;i++)
+        {
+            for(int j=i;j<arr.length;j++)
+            {
+                currSum=0;
+                for(int k=i;k<=j;k++)
+                {
+                    currSum=currSum+arr[k];
+                }
+                if(maxSum<currSum)
+                {
+                    maxSum=currSum;
+                }
+                System.out.println(currSum);
+            }
+            System.out.println();
+        }
+        System.out.println("Maximum sum is :"+maxSum);
+    }
+    public static void main(String args[])
+    {
+        Scanner input =new Scanner (System.in);
+        System.out.println("Enter how many elements do you wanna insert");
+        int n=input.nextInt();
+        int arr[]=new int[n];
+        for(int i=0;i<n;i++)
+        {
+            arr[i]=input.nextInt();
+        }
+        System.out.println("You have entered:");
+        for(int i=0;i<n;i++)
+        {
+            System.out.println(arr[i]);
+        }
+        printSubarraySum(arr);
+        input.close();
+    }
+}
+
+
+
+Enter how many elements do you wanna insert
+5
+2
+4
+6
+8
+10
+You have entered:
+2
+4
+6
+8
+10
+2
+6
+12
+20
+30
+
+4
+10
+18
+28
+
+6
+14
+24
+
+8
+18
+
+10
+
+Maximum sum is :30
