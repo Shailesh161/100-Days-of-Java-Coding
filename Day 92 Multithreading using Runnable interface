@@ -1,0 +1,28 @@
+//By implementing Runnable interface
+
+import java.util.*;
+
+class A implements Runnable
+{
+    public void run()
+    {
+        for(int i =0 ;i<3;i++)
+        {
+            System.out.println("Shailesh");
+        }
+    }
+}
+
+public class B
+{
+    public static void main(String args[])
+    {
+        A t =new A();
+        
+        //AS runnabel interface has only one run() method we cannot directly start the thread using start()method for that we need to create an object ob thread class and need to pass the created thread in bracket as argument.
+        
+        Thread obj =new Thread(t);
+        //now for start method we need to use object of the Thread class.
+        obj.start();
+    }
+}
