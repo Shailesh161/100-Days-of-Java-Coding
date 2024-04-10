@@ -1,0 +1,36 @@
+//Thread Scheduler
+
+import java.util.*;
+
+class A extends Thread
+{
+    
+    public void run()
+    {
+        String n=Thread.currentThread().getName();
+        for(int i =0 ;i<3;i++)
+        {
+            System.out.println(n);
+        }
+    }
+}
+
+public class B
+{
+    public static void main(String args[])
+    {
+        //Created three threads
+        A t1=new A();
+        A t2=new A();
+        A t3=new A();
+        
+        t1.setName("Thread 1");
+        t2.setName("Thread 2");
+        t3.setName("Thread 3");
+        
+        t1.start();
+        t2.start();
+        t3.start();
+        //here diffrent output will come every time because ,each time JVM uses diffrent CPU sscheduling algorithm from-1]FCFS   2]SJF  3]RoundRobin.
+    }
+}
