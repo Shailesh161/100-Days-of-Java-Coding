@@ -1,0 +1,31 @@
+import java.util.*;
+
+class Factorial
+{
+    public static void main(String args[])
+    {
+        System.out.println("Enter a number");
+        Scanner input =new Scanner(System.in);
+        int n=input.nextInt();
+        
+        Factorial obj =new Factorial();
+        int result =obj.factorial(5);
+        System.out.println("Result :"+result);
+        
+    }
+    
+    int factorial(int n)
+    {
+        if(n==1 || n==0)
+        {
+            return 1;
+        }
+        
+        else if (n>1)
+        {
+           return n*factorial(n-1) ;
+        }
+        return -1;
+
+    }
+}

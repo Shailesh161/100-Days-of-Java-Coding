@@ -1,0 +1,34 @@
+// if Entered number is odd give addition of odd numbers in that range and if entered number is even then give addition of even numbers in htat range
+//e.g n=10 then (0+2+4+6+8+10=30)
+//e.g n=11 then (1+3+5+7+9+11=36)
+
+import java.util.*;
+
+class oddEven
+{
+    public static void main(String args[])
+    {
+        int num;
+        System.out.println("Enter a number:");
+        Scanner input =new Scanner(System.in);
+        num= input.nextInt();
+        int sum=0;
+        
+        if(num%2 ==0)
+        {
+            for(int i=0;i<=num;i=i+2)
+            {
+                sum=sum+i;
+            }
+            System.out.println("Output of Even Range is:"+sum);
+        }
+        else
+        {
+            for(int i=1;i<=num;i=i+2)
+            {
+                sum=sum+i;
+            }
+            System.out.println("Output of odd Range is:"+sum);
+        }
+    }
+}

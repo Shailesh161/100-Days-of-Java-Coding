@@ -1,0 +1,41 @@
+import java.util.*;
+
+class demo 
+{
+    public static void main(String args[]) 
+    {
+       
+        System.out.println("Enter how many elements to insert in array:");
+        Scanner input = new Scanner(System.in);
+        int n = input.nextInt();
+        int arr[] = new int[n + 1];
+        for (int i = 0; i < n; i++) 
+        {
+            arr[i] = input.nextInt();
+        }
+
+        System.out.println("Original array:");
+        for (int i = 0; i < n; i++) 
+        {
+            System.out.print(arr[i] + " ");
+        }
+        
+        System.out.println("\nEnter location where you want to insert element:");
+        int loc = input.nextInt();
+        System.out.println("Enter location is: " + loc);
+        System.out.println("Enter the element to insert at that location:");
+        int ele = input.nextInt();
+
+        for (int i = n; i > loc; i--) 
+        {
+            arr[i] = arr[i - 1];
+        }
+        arr[loc] = ele;
+
+        System.out.println("After Insertion:");
+        for (int i = 0; i < n + 1; i++) {
+            System.out.print(arr[i] + " ");
+        }
+        input.close();
+    }
+}
